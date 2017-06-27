@@ -1,9 +1,12 @@
 import Vuex from 'vuex'
 
 const store = () => new Vuex.Store({
-
     state: {
-        counter: 0
+        todos: [
+            {task:'eat'},
+            {task:'sleep'},
+            {task:'code'},
+            ]
     },
     mutations: {
         increment(state) {

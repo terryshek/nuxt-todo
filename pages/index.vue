@@ -1,22 +1,27 @@
 <template>
-  <section class="container">
-    <div>
-      <h1 class="title">
-        Hello World {{counter}}
-      </h1>
-    </div>
-  </section>
+  <article class="pa3 pa5-ns">
+    <h1 class="f4 bold center mw6">Todos</h1>
+    <ul class="list pl0 ml0 center mw6 ba b--light-silver br2">
+      <li class="ph3 pv3 bb b--light-silver" v-for="todo of todos" >{{todo.task}}</li>
+    </ul>
+  </article>
 </template>
 
 <script>
 import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
 
 export default {
-computed: {
+  computed: {
     ...mapState({
-      counter:state=>state.counter
+      todos:state=>state.todos
     })
   },
+  methods:{
+    ...mapMutations([
+      'increment', 'decrement'
+    ])
+  }
+
 }
 </script>
 
